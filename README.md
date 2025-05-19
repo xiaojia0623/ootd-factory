@@ -1,12 +1,46 @@
-# React + Vite
+# 🧢 OOTD Factory｜日常穿搭電商網站
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 🔗 網站 Demo：
+- [OOTD Factory](https://xiaojia0623.github.io/ootd-factory/#/)
 
-Currently, two official plugins are available:
+## 📌 專案簡介
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+OOTD Factory 是一個以「日常潮流穿搭與戶外休閒風格」為主題的電商網站，提供使用者瀏覽商品、加入購物車、使用優惠券折扣並完成結帳的完整流程。
+後台也支援管理商品、訂單、優惠券與部落格文章，是一個前後台功能完整的 SPA（單頁式應用程式）。
 
-## Expanding the ESLint configuration
+本專案支援 響應式設計（RWD），並已部署至 GitHub Pages，適合用於電商相關職位面試作品集展示。
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ⚙️ 主要功能介紹
+
+### 🔎 前台功能（Front）
+- 首頁 Banner 與主題介紹區塊
+- 商品列表與分類篩選
+- 商品詳細頁面（包含圖片、價格、描述）
+- 加入購物車、修改數量、刪除商品
+- 套用優惠券折扣碼
+- 結帳流程三步驟：填寫表單 → 確認資訊 → 完成付款
+- 多種付款方式：信用卡、Apple Pay、Line Pay（模擬流程）
+- 部落格文章瀏覽與閱讀頁面
+- Toast 訊息提示（成功、錯誤等回饋）
+  
+### 🛠️ 後台功能（Admin）
+
+- 商品管理：新增、編輯、刪除商品
+- 訂單管理：查看與標記訂單付款狀態
+- 優惠券管理：新增、編輯、刪除、分頁管理
+
+### 🧪 使用技術
+#### 前端技術
+- React：構建元件式 UI
+- React Router v6：路由管理
+- Redux Toolkit：狀態管理（購物車、訊息系統等）
+- Axios：API 串接
+- Vite：開發環境與建置工具
+- Bootstrap：樣式設計與元件使用
+- SCSS：樣式擴充與模組化管理
+- Swiper.js：商品推薦輪播功能
+- GitHub Pages：網站部署
+
+### 📝 開發收穫
+
+此專案為個人獨立開發，涵蓋前後台所有功能，從 UI 切版、資料串接、錯誤處理到畫面回饋皆由本人負責。透過實作過程，熟悉了 React 生態系、狀態管理與 API 串接等實務技術，也強化了解決跨域請求與表單驗證等開發問題的能力。
