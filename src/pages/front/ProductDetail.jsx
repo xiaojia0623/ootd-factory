@@ -25,7 +25,7 @@ const ProductDetail = () => {
     const { getCart } = useOutletContext();
     const imgRef = useRef(null);
 
-    const [, dispatch] = useContext(MessageContext);
+    const { dispatch} = useContext(MessageContext);
 
     const getProduct = async(id) => {
         const productRes = await axios.get(

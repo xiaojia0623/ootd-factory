@@ -21,7 +21,7 @@ const AdminOrder = () => {
     //暫存方法
     const [tempOrder, setTempOrder] = useState({})
 
-    const [, dispatch] = useContext(MessageContext);
+    const { dispatch} = useContext(MessageContext);
 
     const orderModal = useRef(null);
     const deleteModal = useRef(null);

@@ -21,7 +21,7 @@ const AdminProducts = () => {
     //暫存方法
     const [tempProduct, setTempProduct] = useState({})
 
-    const [, dispatch] = useContext(MessageContext);
+    const { dispatch} = useContext(MessageContext);
 
     const productModal = useRef(null);
     const deleteModal = useRef(null);

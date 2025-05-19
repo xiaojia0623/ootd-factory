@@ -21,7 +21,7 @@ const AdminCoupons = () => {
   //暫存方法
   const [tempCoupon, setTempCoupon] = useState({});
 
-  const [, dispatch] = useContext(MessageContext);
+  const { dispatch} = useContext(MessageContext);
   
   const couponModal = useRef(null);
   const deleteModal = useRef(null);

@@ -22,7 +22,7 @@ const CartPage = () => {
     const [couponError, setCouponError] = useState('');
     const [isApplying, setIsApplying] = useState(false);
     const [discountPercent, setDiscountPercent] = useState(0);
-    const [, dispatch] = useContext(MessageContext);
+    const { dispatch} = useContext(MessageContext);
 
     const removeCartItem = async(id) => {
         try{

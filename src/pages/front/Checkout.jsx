@@ -22,7 +22,7 @@ const Checkout = () => {
   const [discountPercent, setDiscountPercent] = useState(0);
   const [shippingFee, setShippingFee] = useState(0);
 
-  const [, dispatch] = useContext(MessageContext);
+  const { dispatch} = useContext(MessageContext);
   const navigate = useNavigate();
 
   const {
