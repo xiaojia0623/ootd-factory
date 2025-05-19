@@ -1,0 +1,19 @@
+@use 'bootstrap/scss/functions';
+@use 'bootstrap/scss/mixins';
+
+@use './variables' as variables;
+
+@use 'bootstrap' with (
+  $primary: variables.$primary
+);
+
+@use './variables-dark';
+@use './utiilities';
+
+@use './page/productStyle';
+@use './page/home';
+@use './page/navbar';
+@use './page/cartPage';
+@use './page/checkout';
+
+

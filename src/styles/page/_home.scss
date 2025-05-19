@@ -1,0 +1,225 @@
+.home-top-intro{
+    .img-fluid {
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        color: #FF6B00;
+    }
+    h3 {
+        font-size: 22px;
+        color: #555;
+    }
+    .input-group {
+        max-width: 500px;
+        margin: 0 auto;
+        .form-control {
+            border-radius: 25px;
+            border: 2px solid #ddd;
+        }
+        .btn {
+            background-color: #FF6B00;
+            color: white;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+            height: 100%;
+            border: none;
+            &:hover {
+                background-color: #e85d00;
+            }
+        }
+    }
+    .text-orange {
+        color: #FF6B00;
+    }
+    .btn-outline-orange {
+        border-color: #FF6B00;
+        color: #FF6B00;
+    }
+    .btn-outline-orange:hover {
+        background-color: #FF6B00;
+        color: #fff;
+    }
+}
+
+.home-middle-card{
+    .card {
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        cursor: pointer;
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+        h4 {
+            font-size: 1.25rem;
+            color: #333;
+        }
+        .card-text {
+            font-size: 0.9rem;
+        }
+        .btn {
+            background-color: #FF6B00;
+            color: white;
+            transition: background-color 0.3s ease;
+            &:hover {
+                background-color: #e85d00;
+            }
+        }
+    }
+}
+
+.home-subscrib {
+    background-color: #1E1E1E;
+    color: #fff;
+    padding: '60px 20px';
+    text-align: 'center';
+    .container{
+        max-width: 700px;
+        margin: 0 auto;
+        form{
+            width: 50%;
+        }
+    }
+    
+}
+.home-product-list{
+    h3{
+        text-align: center;
+        font-size: 36px;
+    }
+}
+.more-button{
+    transition: background-color 0.3s ease;
+    .btn{
+        display: inline-flex;
+        color: #FFFFFF;
+        cursor: pointer;
+        max-width: 160px;
+        width: 100%;
+        position: relative;
+        text-decoration: none;
+        width: 100%; 
+        background: #FF6B00;
+    }
+    .btnLink{
+        box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+        outline: 1px solid rgba(69, 66, 66, 0.5);
+        outline-offset: 0px;
+        text-shadow: none;
+        transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:hover {
+            border: 1px solid #FF6B00;
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+            outline-color: rgba(255, 255, 255, 0);
+            outline-offset: 15px;
+            .arrow {
+                transform: translateX(5px);
+            }
+        }
+        .arrow{
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+    }
+}
+
+.homeSwiper .swiper-pagination-bullet-active {
+  background: #FF6B00;
+}
+
+.top-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #ff6b00;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+    &.hide {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(20px);
+    }
+
+    &.show {
+        opacity: 1;
+        
+        transform: translateY(0);
+    }
+
+    .goTopBtn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 11px;
+        
+    }
+
+    i {
+        color: white;
+        font-size: 24px;
+        pointer-events: none;
+    }
+}
+
+
+@media (max-width: 992px){
+    .home-top-intro{
+        .home-banner{
+            h3{
+                font-size: 19px;
+                line-height: 1.5;
+            }
+        }
+    }
+    .more-button{
+        width: 17%;
+    }
+    .home-product-list{
+        h3{
+            font-size: 30px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .home-middle-card{
+        .col-md-6 {
+          width: 100%;
+        }
+    }
+    .more-button{
+        width: 25%;
+        margin-bottom: 20px;
+    }
+    .home-subscrib{
+        .container{
+            form{
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px){
+    .home-top-intro{
+        h3{
+            font-size: 20px;
+        }
+    }
+    .more-button{
+        width: 33%;
+    }
+}
