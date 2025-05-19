@@ -23,7 +23,7 @@ const Products = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { getCart } = useOutletContext();
   const imgRefs = useRef({});
-  const [, dispatch] = useContext(MessageContext);
+  const { dispatch} = useContext(MessageContext);
 
   const getProducts = async (page = 1) => {
     setIsLoading(true);
@@ -35,10 +35,16 @@ const Products = () => {
 
   const getAllProducts = async () => {
     const res = await axios.get(`/v2/api/${VITE_PATH}/products/all`);
-    setAllProducts(res.data.products);
+    const products = res.data.products || []; // 防止 undefined
+    // setAllProducts(res.data.products);
+    setAllProducts(products);
+    // const categories = [
+    //   '全部',
+    //   ...new Set(res.data.products.map(p => p.category)),
+    // ];
     const categories = [
       '全部',
-      ...new Set(res.data.products.map(p => p.category)),
+      ...new Set(products.map(p => p.category || '未分類')), // 防止 category 為 undefined
     ];
     setAllCategories(categories);
   };
@@ -70,7 +76,6 @@ const Products = () => {
       });
 
       getCart();
-      setIsLoading(false);
     } catch (error) {
       handleErrorMessage(dispatch, error);
     } finally {
@@ -78,7 +83,7 @@ const Products = () => {
     }
   };
 
-  const handleAddToCcart = product => {
+  const handleAddToCart = product => {
     const imgEl = imgRefs.current[product.id];
     if (imgEl) {
       flyToCart(imgEl);
@@ -88,7 +93,7 @@ const Products = () => {
 
   return (
     <>
-      <div className='container mt-md-5 mt-3 mb-7 d-flex'>
+      <div className='container mt-md-5 mt-3 mb-7 d-flex full-height'>
         <Loading isLoading={isLoading} />
 
         <div className='row w-100 m-0'>
@@ -150,7 +155,7 @@ const Products = () => {
                         <button
                           type='button'
                           className='btn btn-primary'
-                          onClick={() => handleAddToCcart(product)}
+                          onClick={() => handleAddToCart(product)}
                           disabled={isLoading}
                         >
                           加入購物車
