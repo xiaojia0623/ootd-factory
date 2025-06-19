@@ -1,6 +1,11 @@
 html, body {
   height: 100%;
   margin: 0;
+  background-image: url('https://img.freepik.com/premium-photo/abstract-curly-silk-ribbon-pastel-background-exclusive-luxury-brand-design-holiday-sale-product-promotion-glamour-art-invitation-card-backdrop_360074-31532.jpg?ga=GA1.1.1456518991.1750124134&semt=ais_hybrid&w=740');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     ::selection {
         background: #FF6B00;
         color: #ffffff;

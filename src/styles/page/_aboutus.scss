@@ -1,0 +1,20 @@
+.about_wrapper{
+    margin: 50px auto;
+    padding: 20px;
+    height: 80vh;
+    .about_title{
+        color: #FF6B00;
+        font-size: 24px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        border-left: 8px solid #FF6B00;
+        padding-left: 10px;
+    }
+    .about_content_item{
+        margin-bottom: 20px;
+        font-size: 18px;
+        line-height: 1.6;
+        color: #333333;
+        font-weight: bold;
+    }
+}
