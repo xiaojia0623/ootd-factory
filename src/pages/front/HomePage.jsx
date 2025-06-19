@@ -80,7 +80,7 @@ const HomePage = () => {
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <img src={new URL('@/assets/banner-2.png', import.meta.url).href} alt="banner2" />
+                        <img src={new URL('@/assets/banner-2.jpg', import.meta.url).href} alt="banner2" />
                         <div className="banner_text bannner_text2">
                           <h3>SUMMER SALE 30% OFF</h3>
                           <h4>限時優惠，清爽穿搭全面出清</h4>
