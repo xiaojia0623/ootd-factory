@@ -5,12 +5,18 @@ import AdminProducts from './pages/admin/AdminProducts';
 import AdminCoupons from './pages/admin/AdminCoupons';
 import AdminOrder from './pages/admin/AdminOrder';
 import FrontLayout from './pages/front/FrontLayout';
-import Home from './pages/front/Home';
+import HomePage from './pages/front/HomePage';
 import Products from './pages/front/Products';
 import ProductDetail from './pages/front/ProductDetail';
-import CartPage from './pages/front/CartPage';
+//import CartPage from './pages/front/CartPage';
 import Checkout from './pages/front/Checkout';
 import Success from './pages/front/Success';
+import AboutUs from './pages/front/AboutUs';
+
+//test
+
+import CartPage from './pages/front/CartPage';
+import PrivacyPolicy from './pages/front/PrivacyPolicy';
 
 
 function App() {
@@ -18,12 +24,14 @@ function App() {
     <div className='App'>
       <Routes>
         <Route path='/' element={<FrontLayout />}>
-          <Route path='' element={<Home />}></Route>
+          <Route path='' element={<HomePage />}></Route>
+          <Route path='about' element={<AboutUs />}></Route>
           <Route path='products' element={<Products />}></Route>
           <Route path='product/:id' element={<ProductDetail />}></Route>
           <Route path='cart' element={<CartPage />}></Route>
           <Route path='checkout' element={<Checkout />}></Route>
           <Route path='success/:orderId' element={<Success />}></Route>
+          <Route path='privacy' element={<PrivacyPolicy />}></Route>
         </Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/admin' element={<Dashboard />}>
