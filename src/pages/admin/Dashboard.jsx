@@ -24,7 +24,7 @@ const Dashboard = () => {
         .find(row => row.startsWith('feijia23456='))
         ?.split('=')[1];
 
-        axios.defaults.headers.common['Authorization'] = token;
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
     useEffect(() => {
         if (!token){
@@ -32,9 +32,13 @@ const Dashboard = () => {
         }
         (async() => {
             try{
-                await axios.post('/v2/api/user/check');
+                await axios.post('/v2/api/user/check', null, {
+                    headers: {
+                        Authorization: token, // 如果是 cookie 裡取出來的 token
+                    },
+                });
             }catch(error){
-                if (!error.response.data.success){
+                if (!error.response || !error.response.data?.success){
                     navigate('/login');
                 }
 
@@ -94,6 +98,13 @@ const Dashboard = () => {
                     >
                         <i className='bi bi-receipt me-2' />
                         訂單列表
+                    </Link>
+                    <Link
+                    className='list-group-item list-group-item-action py-3'
+                    to='/admin/news'
+                    >
+                        <i className='bi bi-newspaper me-2' />
+                        最新消息列表
                     </Link>
                 </ul>
             </div>
