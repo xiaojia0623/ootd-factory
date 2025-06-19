@@ -36,12 +36,7 @@ const Products = () => {
   const getAllProducts = async () => {
     const res = await axios.get(`/v2/api/${VITE_PATH}/products/all`);
     const products = res.data.products || []; // 防止 undefined
-    // setAllProducts(res.data.products);
     setAllProducts(products);
-    // const categories = [
-    //   '全部',
-    //   ...new Set(res.data.products.map(p => p.category)),
-    // ];
     const categories = [
       '全部',
       ...new Set(products.map(p => p.category || '未分類')), // 防止 category 為 undefined
@@ -93,10 +88,10 @@ const Products = () => {
 
   return (
     <>
-      <div className='container mt-md-5 mt-3 mb-7 d-flex full-height'>
+      <div className='container mt-md-5 mt-3 mb-7 d-flex full-height position-relative top-0'>
         <Loading isLoading={isLoading} />
 
-        <div className='row w-100 m-0'>
+        <div className='row w-100 m-0 category-products'>
           <div className='col-12 col-md-3 item-category'>
             <div className='row'>
               <div className='col  col-md-12 col-lg-8'>

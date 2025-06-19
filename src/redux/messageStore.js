@@ -1,14 +1,15 @@
 import { createContext } from "react";
 
-// 跨元件傳遞 useContext
-export const MessageContext = createContext({})
-
 export const initState = {
     type:'',
     title:'',
     text:''
 }
 
+export const MessageContext = createContext({
+    message: initState,
+    dispatch: () => {},
+})
 
 // Reducer
 export const messageReducer = (state, action) => {
