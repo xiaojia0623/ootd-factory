@@ -8,8 +8,6 @@ import 'swiper/css/navigation';
 import { Link, useLocation } from 'react-router-dom';
 import TopButton from '../../components/TopButton';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import banner1 from '@/assets/home-banner.png';
-import banner2 from '@/assets/banner-2.jpg';
 
 const VITE_PATH = import.meta.env.VITE_API_PATH;
 
@@ -74,7 +72,7 @@ const HomePage = () => {
                     loop={true}
                     >
                     <SwiperSlide>
-                        <img src={banner1} alt="banner1" />
+                        <img src={new URL('@/assets/home-banner.png', import.meta.url).href} alt="banner1" />
                         <div className="banner_text bannner_text1">
                           <h3>NEW SEASON · NEW STYLE</h3>
                           <h4>換季新裝登場，展現專屬穿搭風格</h4>
@@ -82,7 +80,7 @@ const HomePage = () => {
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <img src={banner2} alt="banner2" />
+                        <img src={new URL('@/assets/banner-2.png', import.meta.url).href} alt="banner2" />
                         <div className="banner_text bannner_text2">
                           <h3>SUMMER SALE 30% OFF</h3>
                           <h4>限時優惠，清爽穿搭全面出清</h4>
