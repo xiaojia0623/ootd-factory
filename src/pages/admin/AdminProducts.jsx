@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState, useContext} from 'react';
+import {useEffect, useRef, useState, useContext, useCallback} from 'react';
 import axios from 'axios';
 import ProductModal from '../../components/ProductModal';
 import DeleteModal from '../../components/DeleteModal';
@@ -20,12 +20,27 @@ const AdminProducts = () => {
     const [type, setType] = useState('create'); //edit
     //暫存方法
     const [tempProduct, setTempProduct] = useState({})
-
-    const { dispatch} = useContext(MessageContext);
+    const { dispatch } = useContext(MessageContext);
 
     const productModal = useRef(null);
     const deleteModal = useRef(null);
+    const withAuth = () => {
+        const token = document.cookie.replace(/(?:(?:^|.*;\s*)feijia23456\s*=\s*([^;]*).*$)|^.*$/, '$1');
+        axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+      };
 
+    const getProducts = useCallback(async (page = 1) => {
+      try {
+        withAuth();
+        const productRes = await axios.get(
+          `/v2/api/${VITE_PATH}/admin/products?page=${page}`
+        );
+        setProducts(productRes.data.products);
+        setPagination(productRes.data.pagination);
+      } catch (error) {
+        handleErrorMessage(dispatch, error);
+      }
+    }, [dispatch]);
 
     useEffect(() => {
       productModal.current = new Modal('#productModal', {
@@ -36,16 +51,8 @@ const AdminProducts = () => {
         backdrop: 'static',
         keyboard: false,
       });
-        getProducts();
-    }, []);
-      
-    const getProducts = async(page=1) => {
-      const productRes = await axios.get(
-        `/v2/api/${VITE_PATH}/admin/products?page=${page}`
-      );
-      setProducts(productRes.data.products);
-      setPagination(productRes.data.pagination);
-    }
+      getProducts();
+    }, [getProducts]);
 
     const openProductModal = (type, product) => {
       setType(type);
@@ -67,9 +74,9 @@ const AdminProducts = () => {
       deleteModal.current.hide();
     }
 
-    const deleteProduct = async(id) => {
+    const deleteProduct = async() => {
       try{
-        const res = await axios.delete(`/v2/api/${VITE_PATH}/admin/product/${id}`)
+        const res = await axios.delete(`/v2/api/${VITE_PATH}/admin/product/${tempProduct.id}`)
         if (res.data.success) {
           getProducts();
           closeDeleteModal();

@@ -15,10 +15,6 @@ const VITE_PATH = import.meta.env.VITE_API_PATH;
 const AdminOrder = () => {
     const [orders, setOrders] = useState([]);
     const [pagination, setPagination] = useState({});
-
-    //type: 決定modal 展開的用途
-    //const [type, setType] = useState('create'); //edit
-    //暫存方法
     const [tempOrder, setTempOrder] = useState({})
 
     const { dispatch} = useContext(MessageContext);

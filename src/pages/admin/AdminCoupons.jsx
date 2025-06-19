@@ -27,7 +27,7 @@ const AdminCoupons = () => {
   const deleteModal = useRef(null);
 
   useEffect(() => {
-    couponModal.current = new Modal('#productModal', {
+    couponModal.current = new Modal('#openModal', {
       backdrop: 'static',
       keyboard: false,
     });
