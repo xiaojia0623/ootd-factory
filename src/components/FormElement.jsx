@@ -44,7 +44,7 @@ export const Input = ({ id, labelText, register, type, errors, rules, autoComple
           className={`form-control ${errors[id] && 'is-invalid'}`}
           {...register(id, rules)}
         />
-        {errors[id] && (
+        {errors && (
           <div className='invalid-feedback'>{errors[id]?.message}</div>
         )}
       </>
