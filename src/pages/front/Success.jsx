@@ -93,7 +93,6 @@ const Success = () => {
                                                         src={item.product.imageUrl}
                                                         alt={item.product.title}
                                                         className='me-2'
-                                                        style={{ width: '60px', height: '60px' }}
                                                     />
                                                     <div className='w-100 d-flex flex-column'>
                                                         <div className='d-flex justify-content-between fw-bold'>
@@ -102,9 +101,9 @@ const Success = () => {
                                                         </div>
                                                         <div className='d-flex justify-content-between mt-auto'>
                                                             <p className='text-muted mb-0 fw-bold'>
-                                                                <small>NT${item.product.price}</small>
+                                                                <small>NT$ {item.product.price.toLocaleString()}</small>
                                                             </p>
-                                                            <p className='mb-0'>NT${item.product.price}</p>
+                                                            <p className='mb-0'>NT$ {item.product.price.toLocaleString()}</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -117,7 +116,7 @@ const Success = () => {
                             <hr/>
                             <div className='d-flex justify-content-start mt-4'>
                                 <p className='mb-0 h6 fw-bold me-3'>小計 : </p>
-                                <p className='mb-0 h6 fw-bold'>NT${rawSubtotal.toLocaleString()}</p>
+                                <p className='mb-0 h6 fw-bold'>NT$ {rawSubtotal.toLocaleString()}</p>
                             </div>
                             <div className='d-flex justify-content-start mt-2 text-danger'>
                                 <p className='h6 fw-bold mt-2'>
@@ -130,9 +129,8 @@ const Success = () => {
                                     <p className="text-muted small">使用優惠碼：{orderData?.products && Object.values(orderData.products).find(item => item?.coupon)?.coupon?.code}</p>
                                 )}
                             </div>
-                            <div className='d-flex justify-content-start mt-3  position-relative top-0'>
-                                <p className='mb-0 h6 fw-bold'>運費:  {shippingFee === 0 ? '免運費(已達到免運門檻)' : ` + $${shippingFee}`}</p>
-                                <span className='position-absolute' style={{top: '-20px', left:'-10px'}}><i className="bi bi-info-circle"  type="button"  data-bs-toggle="tooltip" data-bs-placement="right"  title="滿5000元可享有免運費，5000元以下需要加60元運費"></i></span>
+                            <div className='d-flex justify-content-start mt-3  position-relative top-0 tooltips'>
+                                <p className='mb-0 h6 fw-bold'>運費 <span><i className="bi bi-info-circle"  type="button"  data-bs-toggle="tooltip" data-bs-placement="right"  title="滿5000元可享有免運費，5000元以下需要加60元運費"></i></span> :  {rawSubtotal >= 5000 ? `免運費` : `NT$ ${shippingFee}`}</p>
                             </div>
                             <div className='d-flex justify-content-between mt-2'>
                                 <p className='mb-0 h4 fw-bold'>總金額</p>
