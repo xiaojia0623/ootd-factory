@@ -91,70 +91,54 @@ const ProductDetail = () => {
     <div className='container full-height product-detail-container'>
         <nav aria-label="breadcrumb" className='my-5'>
             <ol className="breadcrumb fw-bold m-0">
-                <li className="breadcrumb-item"><Link to="/" className='fs-5 text-decoration-none'>首頁</Link></li>
-                <li className="breadcrumb-item"><Link to="/products" className='fs-5 text-decoration-none'>產品列表</Link></li>
-                <li className="breadcrumb-item active fs-5" aria-current="page">產品資訊 - {product.title}</li>
+                <li className="breadcrumb-item"><Link to="/" className='fs-6 text-decoration-none text-secondary'>首頁</Link></li>
+                <li className="breadcrumb-item"><Link to="/products" className='fs-6 text-decoration-none text-secondary'>產品列表</Link></li>
+                <li className="breadcrumb-item active text-primary fs-6" aria-current="page">產品資訊 - {product.title}</li>
             </ol>
         </nav>
 
         <div className="row">
-            {/* 左邊小圖 */}
-            <div className="col-md-2 d-flex flex-column gap-2 product-detail-picSmall">
-                {[product.imageUrl, ...(product.imagesUrl || [])].map((img, idx) => (
-                    <div
-                    key={idx}
-                    style={{
-                        height: '100px',
-                        overflow: 'hidden',
-                        border: selectedImg === img ? '2px solid #FF6B00' : '1px solid #ccc',
-                        borderRadius: '0.25rem',
-                        cursor: 'pointer',
-                    }}
-                    onClick={() => setSelectedImg(img)}
-                    >
-                    <img
-                        src={img}
-                        alt={`thumb-${idx}`}
-                        style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                        display: 'block',
-                        }}
-                    />
+            <div className='col-md-7 d-flex  gap-3 product-detail-pic'>
+                <div className='row flex-row-reverse'>
+                    {/* 左邊小圖 */}
+                    <div className="col-md-4 d-flex flex-column gap-2 product-detail-picSmall">
+                        {[product.imageUrl, ...(product.imagesUrl || [])].map((img, idx) => (
+                            <div
+                            key={idx}
+                            className='picSmall-images'
+                            style={{
+                                border: selectedImg === img ? '2px solid #FF6B00' : '1px solid #ccc',
+                            }}
+                            onClick={() => setSelectedImg(img)}
+                            >
+                            <img
+                                src={img}
+                                alt={`thumb-${idx}`}
+                            />
+                            </div>
+                        ))}
                     </div>
-                ))}
-            </div>
 
-            {/* 右邊大圖 */}
-            <div className="col-md-5 product-detail-picBig">
-                {selectedImg && (
-                    <div
-                    style={{
-                        width: '100%',
-                        height: '425px',
-                        overflow: 'hidden',
-                        borderRadius: '0.5rem',
-                    }}
-                    >
-                    <img
-                        ref={imgRef}
-                        src={selectedImg}
-                        alt="selected"
-                        style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                        display: 'block',
-                        }}
-                    />
+                    {/* 右邊大圖 */}
+                    <div className="col-md-8 product-detail-picBig">
+                        {selectedImg && (
+                            <div
+                            className='picBig-images'
+                            >
+                            <img
+                                ref={imgRef}
+                                src={selectedImg}
+                                alt="selected"
+                            />
+                            </div>
+                        )}
                     </div>
-                )}
+                </div>
             </div>
 
             {/* 商品資訊 */}
-            <div className="col-md-5">
-                <h2>{product.title}</h2>
+            <div className="col-md-5 ">
+                <h2 className='mb-3 fw-bold'>{product.title}</h2>
                 <h4 className="text-danger mb-3">NT$ {product.price?.toLocaleString()} <span className='fs-5 text-muted text-decoration-line-through'>NT$ {product.origin_price?.toLocaleString()}</span></h4>
                 <p className="text-muted">{product.content}</p>
                 <p className="text-muted">{product.description}</p>
@@ -202,12 +186,14 @@ const ProductDetail = () => {
                 {topProducts.map((item) => (
                     <SwiperSlide key={item.id}>
                         <div className="card h-100 shadow-sm">
-                            <img
-                                src={item.imageUrl}
-                                alt={item.title}
-                                className="card-img-top"
-                                style={{ height: '200px', objectFit: 'cover' }}
-                            />
+                            <Link to={`/product/${item.id}`}>
+                                <img
+                                    src={item.imageUrl}
+                                    alt={item.title}
+                                    className="card-img-top"
+                                />
+                            
+                            </Link>
                             <div className="card-body border-bottom">
                                 <h6 className="card-title"><Link to={`/product/${item.id}`} className='swiper-title text-dark text-decoration-none fs-5'>{item.title}</Link></h6>
                                 <p className="card-text text-danger fw-bold">$ {item.price?.toLocaleString()}</p>
