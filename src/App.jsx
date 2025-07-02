@@ -20,7 +20,7 @@ function App() {
     <div className='App'>
       <Routes>
         <Route path='/' element={<FrontLayout />}>
-          <Route index element={<HomePage />}></Route>
+          <Route path='' element={<HomePage />}></Route>
           <Route path='about' element={<AboutUs />}></Route>
           <Route path='products' element={<Products />}></Route>
           <Route path='product/:id' element={<ProductDetail />}></Route>
