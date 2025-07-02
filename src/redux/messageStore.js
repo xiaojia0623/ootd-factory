@@ -1,11 +1,14 @@
-import { createContext } from "react";
+import React, { createContext, useReducer } from "react";
 
+
+// 初始狀態
 export const initState = {
     type:'',
     title:'',
     text:''
 }
 
+// 建立 Context
 export const MessageContext = createContext({
     message: initState,
     dispatch: () => {},
@@ -27,6 +30,7 @@ export const messageReducer = (state, action) => {
     }
 }
 
+// 成功/錯誤訊息處理
 export function handleSuccessMessage(dispatch, res) {
     dispatch({
         type: 'POST_MESSAGE',
@@ -58,3 +62,15 @@ export function handleErrorMessage(dispatch, error) {
         })
     }, 3000)
 }
+
+
+//  放在最下面的 Provider
+export const MessageProvider = ({ children }) => {
+  const [message, dispatch] = useReducer(messageReducer, initState);
+
+  return React.createElement(
+    MessageContext.Provider,
+    { value: { message, dispatch } },
+    children
+  );
+};
