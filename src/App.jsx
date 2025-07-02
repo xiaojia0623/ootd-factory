@@ -13,7 +13,6 @@ import Success from './pages/front/Success';
 import AboutUs from './pages/front/AboutUs';
 import CartPage from './pages/front/CartPage';
 import PrivacyPolicy from './pages/front/PrivacyPolicy';
-import NotFoundPage from './pages/NotFoundPage';
 
 
 function App() {
@@ -29,16 +28,13 @@ function App() {
           <Route path='checkout' element={<Checkout />}></Route>
           <Route path='success/:orderId' element={<Success />}></Route>
           <Route path='privacy' element={<PrivacyPolicy />}></Route>
-          <Route path='*' element={<NotFoundPage />}></Route>
         </Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/admin' element={<Dashboard />}>
           <Route path='products' element={<AdminProducts />}></Route>
           <Route path='coupons' element={<AdminCoupons />}></Route>
           <Route path='orders' element={<AdminOrder />}></Route>
-          <Route path='*' element={<NotFoundPage />}></Route>
         </Route>
-        <Route path='*' element={<NotFoundPage />}></Route>
       </Routes>
     </div>
   );
