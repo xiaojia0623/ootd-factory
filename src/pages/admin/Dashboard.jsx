@@ -34,7 +34,7 @@ const Dashboard = () => {
             try{
                 await axios.post('/v2/api/user/check', null, {
                     headers: {
-                        Authorization: token, // 如果是 cookie 裡取出來的 token
+                        Authorization: token,
                     },
                 });
             }catch(error){
