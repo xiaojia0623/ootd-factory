@@ -8,15 +8,12 @@ import FrontLayout from './pages/front/FrontLayout';
 import HomePage from './pages/front/HomePage';
 import Products from './pages/front/Products';
 import ProductDetail from './pages/front/ProductDetail';
-//import CartPage from './pages/front/CartPage';
 import Checkout from './pages/front/Checkout';
 import Success from './pages/front/Success';
 import AboutUs from './pages/front/AboutUs';
-
-//test
-
 import CartPage from './pages/front/CartPage';
 import PrivacyPolicy from './pages/front/PrivacyPolicy';
+import NotFoundPage from './pages/NotFoundPage';
 
 
 function App() {
@@ -39,6 +36,7 @@ function App() {
           <Route path='coupons' element={<AdminCoupons />}></Route>
           <Route path='orders' element={<AdminOrder />}></Route>
         </Route>
+        <Route path='*' element={<NotFoundPage />}></Route>
       </Routes>
     </div>
   );
