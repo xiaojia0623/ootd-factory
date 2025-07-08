@@ -1,15 +1,13 @@
 import { BrowserRouter  } from 'react-router-dom';
 import App from '../App';
-import { MessageProvider } from '../redux/messageStore';
+//import { MessageProvider } from '../redux/messageStore';
 
 
 const AppWithProvider = () => {
   return (
-    <MessageProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter >
-    </MessageProvider>
+    <BrowserRouter basename="/ootd-factory">
+      <App />
+    </BrowserRouter >
   );
 };
 
