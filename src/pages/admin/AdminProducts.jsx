@@ -26,7 +26,7 @@ const AdminProducts = () => {
     const deleteModal = useRef(null);
     const withAuth = () => {
         const token = document.cookie.replace(/(?:(?:^|.*;\s*)feijia23456\s*=\s*([^;]*).*$)|^.*$/, '$1');
-        axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+        axios.defaults.headers.common.Authorization = `${token}`;
       };
 
     const getProducts = useCallback(async (page = 1) => {
